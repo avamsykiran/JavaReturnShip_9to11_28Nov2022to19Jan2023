@@ -529,8 +529,66 @@ Java SE 8
 
             Employee e = new Employee(); //is an error
 
+    'this' keyword
+    ----------------------------------------------------
 
-
+        this    is a reference to the current object for a method.
             
-            
+            class Rectangle{
+                private int length;
+                private int breadth;
 
+                Rectangle(){
+                    this.length=5;
+                    this.breadth=5;
+                }
+
+                Rectangle(int side){
+                    this.length=side;
+                    this.breadth=side;
+                }
+
+                Rectangle(int length,int breadth){
+                    this.length=length;
+                    this.breadth=breadth;
+                }
+
+                Rectangle(Rectangle r){
+                    this.length=r.length;
+                    this.breadth=r.breadth;
+                }
+
+                public int getArea(){
+                    return this.length*this.breadth;
+                }
+
+            }            
+
+    this keyword can also be sued to call one constructor from another constructor of that class.    
+
+            class Rectangle{
+                private int length;
+                private int breadth;
+
+                Rectangle(){
+                    this(5);
+                }
+
+                Rectangle(int side){
+                    this(side,side);
+                }
+
+                Rectangle(int length,int breadth){
+                    this.length=length;
+                    this.breadth=breadth;
+                }
+
+                Rectangle(Rectangle r){
+                    this(r.length,r.breadth);
+                }
+
+                public int getArea(){
+                    return this.length*this.breadth;
+                }
+
+            }
