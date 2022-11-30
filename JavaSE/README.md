@@ -283,7 +283,6 @@ Java SE 8
     the total, average and grade where the grade is A+ if avg is aboe 90 else grade is
     B+ if the avg is between 89 and 75 else C if avg between 74 and 35 else grade is 'FAIL'.
 
-
     Object Oriented Programming
     ------------------------------------------------------------------------------------------
 
@@ -324,6 +323,214 @@ Java SE 8
                             Director
                                 (+ shares)
 
+            Polymorphisim   is about having two or more methods with the same name.
+
+                            eat an apple
+                                1. Wash
+                                2. Cut
+                                3. Chew and swallow each piece
+
+                            eat an iceCream
+                                1. lick and swallow
+
+                            overloading
+                                the same entity has the behaviour but different implementation
+                                for different inputs.
+
+                                two methods are said to be overlaoded if they belong to the smae class
+                                or to a super and a sub class and have the same name but differ in 
+                                the parameters type or count or order.
+
+                                class Human{
+                                    Energy eat(Apple apple){
+
+                                    }
+
+                                    Energy eat(IceCream icecream){
+
+                                    }
+                                }
+
+                            overriding
+
+                                similar entities has the same behaviour but different implementation.
+
+                                two method are said to be overriden if they belong to a super and a sub class 
+                                and have the same signature (returntype methodName(Parmas)).
+                                
+                                class Animal {
+                                    Energy eat(Apple apple){
+                                        //bites and chews and swallows
+                                    }
+                                }
+                                
+                                class Human extends Animal {
+                                    Energy eat(Apple apple){
+                                        //wash and cut and chew and swallow
+                                    }
+                                }
+
+            Abstraction         is also known as behaviour hiding. 
+
+                                    abstract methods, abstract classes and interfaces.
+
+    Classes, Objects and Encapsulation In Java
+    ---------------------------------------------------------------------------------------
+
+        class <ClassName> {
+            //list of fields
+            //list of methods
+        }
+
+        encapsualtion is acheved through access specifiers/access qualifiers.
+        access specifiers will control the visibility.
+
+        default
+        private
+        protected
+        public
+
+            package p1;
+                class C1{
+                    int defaultX;
+                    private int privateX;
+                    protected int protectedX;
+                    public int publicX;
+
+                }
+                class C2{
+                    //we can access defaultX and publicX only
+                    //protectedX and privateX are not visible here.
+                }
+                class C3 extends C1{
+                    //we can access defaultX and publicX and protectedX only
+                    //privateX is not visible here.
+                }
+
+            package p2;
+                class C4 extends C1{
+                    //we can access publicX and protectedX only
+                    //defaultX and privateX are not visible here.
+                }
+                class C5{
+                    //we can access publicX only
+                    //defaultX and privateX and protectedX are not visible here.
+                }
+        
+        getters and setters are used to provide indirect access to invisible fields.
+
+        setter is a method used to change the value of a field
+        and getter is a mehtod used to return the value of a field
+
+        class Student {
+            private int rollNum;
+
+            public void setRollNum(int x){
+                rollNum=x;
+            }
+
+            public int getRollNum(){
+                return rollNum;
+            }
+        }
+    
+        Object are reference type in java.
+
+        int x = 45;                        x [  45  ]
+        int y = x;                         y [  45  ]
+
+        y++; // value of x is 45 and value of y=46          y [  46  ]
+            // x and y are value types.
+
+        class Rectangle{
+            private int length;
+            private int breadth;
+
+        }
+
+        Rectangle r1;                       r1  [   null  ]        
+        r1 = new Rectangle();               r1  [     <---]---------------------|------- { length [  ]  breadth  [   ]}
+                                                                                |
+        Rectangle r2 = r1;                  r2  [     <---]---------------------|
+
+        Rectangle r3;
+        r3 = new Rectangle();               r3  [     <---]----------------------------- { length [  ]  breadth  [   ]}
+
+        Constructor is a special method of a class used for initialization, or to execute immidiately after
+                        allocating an object.
+                    in java a constructor must have the same name as that of the class name and
+                    must not return any value.
+                    a class can have any number of constructors as long as they differ in their params.
+
+                        constructor
+                                with no paramaters                          default constructor
+                                with parameters                             paramatrized constructor
+                                with the smae class object as param         copy constructor
+
+            class Rectangle{
+                private int length;
+                private int breadth;
+
+                Rectangle(){
+                    length=5;
+                    breadth=5;
+                }
+
+                Rectangle(int x){
+                    length=x;
+                    breadth=x;
+                }
+
+                Rectangle(int x,int y){
+                    length=x;
+                    breadth=y;
+                }
+
+                Rectangle(Rectangle r){
+                    length=r.length;
+                    breadth=r.breadth;
+                }
+
+                public int getArea(){
+                    return length*breadth;
+                }
+
+            }            
+
+            Rectangle r1 = new Rectangle();
+            System.out.println(r1.getArea());       //25
+            Rectangle r2 = new Rectangle(10);
+            System.out.println(r2.getArea());       //100
+            Rectangle r3 = new Rectangle(10,5);
+            System.out.println(r3.getArea());       //50
+            Rectangle r4 = new Rectangle(r2);
+            System.out.println(r4.getArea());       //100
 
 
+            class Student{
+                private int rollNum;
+                private String name;
+                private double fee;
+            }
+
+            Student s = new Student(); //no errors, because the student has no constructors, it will added a defualt constructor
+                                        //by the compiler
+
+            
+            class Employee{
+                private int empId;
+                private String name;
+                private String designation;
+
+                public Employee(int r,String n,String d){
+                    //.............
+                }
+            }
+
+            Employee e = new Employee(); //is an error
+
+
+
+            
+            
 
