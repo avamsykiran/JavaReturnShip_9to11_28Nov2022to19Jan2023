@@ -564,7 +564,7 @@ Java SE 8
 
             }            
 
-    this keyword can also be sued to call one constructor from another constructor of that class.    
+    this keyword can also be used to call one constructor from another constructor of that class.    
 
             class Rectangle{
                 private int length;
@@ -592,3 +592,79 @@ Java SE 8
                 }
 
             }
+
+
+    classes play a variety of roles
+        models              represents a domain entity like Employee,Vehicle,Student ..etc.,
+        daos                represents persistence logic (database operations)
+        services            represents bussiness logic (validations,computations...etc)
+        ui's                represents presentation logic (accepting commands and data/displaying info or messages)
+
+
+    'static' keyword
+    -------------------------------------------------------------------------
+
+        static field
+
+            static fields are called class-variables.
+            non-static fields are called instance-variables. (instance means object)
+
+            each object of a class has a seperate copy of instance-variables and
+            all the object of a class share the same copy of class-variables.
+
+        static method
+            static methods are opwned by the class not by the object, and are called on the class not on the object.
+            static methods do not have current object and hence can not use 'this'.
+            static methods can access static members directly but can not access non-static members directly.
+
+        *** if a static method is returning the object of the smae class, then it is called a factory method.
+
+        static block
+
+            static {
+                //one class can have multiple static blocks but are treated as one.
+                //the static block gets executed when the class is accessed for the first time.
+                //accessing a class means
+                //      1. declare an object to the class or
+                //      2. allocate an object to the class or
+                //      3. call a static method of the class or
+                //      4. access a static field of the class
+                // a static block execute once and once per class in an application.
+            }
+
+        static class
+
+            it is possible to create a class inside another class.
+
+            that inner class if marked static it is called nested class.
+
+                class TopLevelClass {
+
+                    class InnerClass{
+
+                    }
+
+                    static class NestedClass{
+                        
+                    }
+                }
+
+
+    'final' keyword
+    -------------------------------------------------------------------------
+
+        final field or final local-variable
+            those fields or local-variables behave as constants.
+
+        final method
+            those methods can not be overriden.
+
+        final class
+            those classes can not be inhereted.
+
+Inheretence and Polymorphsism in java
+------------------------------------------------------------------------------------            
+
+    'extends' keyword is used to inhereit a class from another.
+    java classes do not support multiple inheretence.
+    
