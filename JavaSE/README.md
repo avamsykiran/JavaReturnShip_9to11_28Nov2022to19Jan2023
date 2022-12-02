@@ -666,5 +666,157 @@ Inheretence and Polymorphsism in java
 ------------------------------------------------------------------------------------            
 
     'extends' keyword is used to inhereit a class from another.
+    'super' keyword is used to call super class constructor from a sub class constructor.
+    'super' keyword can also be used call an overriden copy of the super class method from the sub class.
     java classes do not support multiple inheretence.
     
+                             Employee    (empNo,name,basic)         
+                                ↑
+                            -----------------
+                            ↑               ↑
+                            Manager         ContractEmployee
+                              (+ allowence)         (+ contractDuration)
+                            ↑
+                            Director
+                                (+ shares)
+
+    1. Default constructors are chained in inheretence.
+    2. Type Casting
+
+            //implicit type casting
+
+            short s = 12;
+            int i = s;
+            long l = i;
+            double d = l;
+
+            char ch = 'a';
+            int x = ch;
+
+            //explicit type casting
+            int y=65;
+            char ch1=(char)y;
+
+            double a = 22.777;
+            int b = (int)a;
+
+            //implicit type casting on classes
+            //a super class ref can hold a sub class object.
+            
+            Employee e1 = new Manager();
+            Employee e2 = new Director();
+            Employee e3 = new ContractEmployee();
+            Manager m1 = new Director();
+            Manager m2 = new ContractEmployee(); //no, not possible
+
+            //a super class object can not be held by a sub class ref.
+            ContractEmployee ce1 = new Employee(); //no, not possible
+
+            //explicit type casting on classes
+
+            Manager mgr1 = (Manager) e1;
+            Manager mgr2 = (Manager) e2;
+            Manager mgr3 = (Manager) e3; //no, not possible, throws ClassCastException
+
+            'instanceof' operator used to check if an object is an instacne of a class.
+
+Abstract Classes
+-----------------------------------------------------------------
+
+    An abstract class can not have objects allocated.
+    'abstract' keyword is used to mark a class as abstract.
+
+    Person      name,dob,bloodGroup,height,weight,contatctDetials
+        ↑
+        |- Student                 admno,fee,scores
+        |- Principal               staffId,salary
+        |- TeachingStaff           staffId,salary,subject
+        |- NonTeachingStaff        staffId,designation
+
+    Person need not be instantiated ever. Hence we can mark it abstract.
+
+    public abstract class Person {
+        //.................
+    }
+
+    public class Student extends Person{
+        //............
+    }
+
+Abstract Function
+----------------------------------------------------------------------
+
+    'abstract' keyword is used to mark a method as abstract.
+    Method having no clear implementation are marked as abstract.
+    If a class has atlest one abstract function, then the class must be marked abstract.
+    When abstract classes are inhereted , then the sub class must override and implement
+        all the abstract methods in that super abstract class.
+        on failing which the sub-class also must be marked abstract.
+
+        public abstract class Shape {
+
+            private int[] sides;
+
+            public Shape(int numberOfSides){
+                this.sides = new int[numberOfSides];
+            }
+
+            public int getPerimeter(){
+                int p =0;
+                for(int side : sides){
+                    p+=side;
+                }
+                return p;
+            }
+
+            public abstract int getArea();
+        }
+
+Interfaces
+-----------------------------------------------------------------------
+
+    an interface is a used defiend data type that represents a 'role'.
+    an interface can have final fields, methods, static methods and abstract emthods.
+    an interface can not have fields and constructors.
+    an interface can not have an object allocated.
+    one interface can inherit only on other interface.
+    one class can inherit more than one interfaces. (interface to class - multiple inheretence is possible)
+
+
+    'extends' keyword is used to inherit a class from a class or a interface from a interface.
+    'implements' keyword is used to inherit a class from one or more interfaces.
+
+
+        Animal                              Bird
+         ↑                                   ↑ 
+        -------------                   ---------------------
+        |           |                   |                   |
+        MaleAnimal  FemaleAnimal       MaleBird            FemaleBird
+
+
+            Father         
+            Mother          giveBirth()
+            Sibling
+
+            MaleAnimal implements Father,Sibling
+            FemaleAnumal implements Mother,Sibling
+            
+            MaleBird implements Father,Sibling
+            FemaleBird implements Mother,Sibling
+
+
+    How do you choose between an abstract class and an interface ?
+
+            abstract class can have fields and interface can not.
+            abstract classes (as they are still classes) can not support multiple inheretence
+                    where as interfaces can.
+
+            along with the abstract method, do we have fields??
+                             |
+                             |
+                NO ------------------------ YES 
+                 |                            |- we will choose an abstract class
+                 |
+                 |- we will choose interface (as we will have the advantage of multiple inheretence)
+
+*** keywords 'abstract' and 'final' are contradictory and hence can not be used togather.
