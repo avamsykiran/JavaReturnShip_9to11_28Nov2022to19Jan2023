@@ -804,7 +804,6 @@ Interfaces
             MaleBird implements Father,Sibling
             FemaleBird implements Mother,Sibling
 
-
     How do you choose between an abstract class and an interface ?
 
             abstract class can have fields and interface can not.
@@ -820,3 +819,115 @@ Interfaces
                  |- we will choose interface (as we will have the advantage of multiple inheretence)
 
 *** keywords 'abstract' and 'final' are contradictory and hence can not be used togather.
+
+Case Study - Loan4u
+-----------------------------------------------------------------------------------
+
+    This org offers a varity of loans.
+    For every loan irrespective of the loan varaity, we have to record
+        the loan amount, rate of interest (annual) and terms (in months).
+    For Personal Loan, we have to record the consumer annual income and profession.
+    For Product Loan, we have to record the product name, make and its cost.
+    For Vehicle Loan, we have to record the vehicle make and model, insurence amount, insurence period.
+
+    We need to compute the interset and total payable amount in different methods like
+        a) simple interest
+        b) or EMIs
+
+    public abstract class Loan {
+        private double amount;
+        private double roi;
+        private double terms;
+
+        //constructors and getter and setters...    
+    }
+
+    public class PersonalLoan extends Loan{
+        private double income;
+        private String profession;
+
+        //constructors and getter and setters...    
+    }
+    
+    public class ProductLoan extends Loan{
+        private String productName;
+        private double productCost;
+
+        //constructors and getter and setters...    
+    }
+    
+    public class VechicleLoan extends Loan{
+        private String makeAdModel;
+        private String insurenceDetails;
+
+        //constructors and getter and setters...    
+    }
+
+    public interface LoanService{
+        double getInterest(Loan loan);
+
+        public default double getPayableAmount(Loan loan){
+            return getInterest(loan) + loan.getAmount();
+        }
+    }
+
+    public class SimpleInterest implements LoanService{
+        @override
+        public double getInterest(Loan loan){
+            return //simple interst fomula; 
+        }
+    }
+
+    public class EMI implements LoanService{
+        @override
+        public double getInterest(Loan loan){
+            return //emi formula
+        }
+    }
+
+Java Standard Libraries
+----------------------------------------------------------------------------------------------------
+
+    java.lang               Wrappers,Multi-Thread,Exception Handling 
+    java.time               Date Time API
+    java.util               Utility Class, Generics, Collections
+    java.util.function      Functional Interfaces and Lambda Expressions
+    java.util.stream        Streams API
+    java.util.regex         Regular Expressions
+    java.io                 IO Streams
+    java.nio                Novel/NonBlocking IO Streams
+    javax.sql               JDBC - Java Databae Connectivity
+
+java.lang               Wrappers,Multi-Thread,Exception Handling 
+-----------------------------------------------------------------------------------------------------
+
+    is an implict default package for every java program.
+
+    Object          is the default super class.
+                        boolean equals(Object obj);     //   obj1.equals(obj2)
+                        int hashcode();
+                        String toString();
+
+    Class
+    System
+    Math
+    String
+    StringBuilder
+    StringBuffer
+    
+    Integer
+    Short
+    Long
+    Double
+    Flaot
+    Character
+    Boolean
+    Void
+
+    Throwable
+    Exception
+    RuntimeExcetpion
+
+    Runnable
+    Thread
+
