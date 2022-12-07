@@ -908,13 +908,55 @@ java.lang               Wrappers,Multi-Thread,Exception Handling
                         int hashcode();
                         String toString();
 
-    Class
-    System
-    Math
-    String
+    Class           
+    System          represent the host OS.
+                        all fields and method here are static.
+                        in      java.io.InputStream     standard input (Keyboard)
+                        out     java.io.PrintStream     standard output (VDU - Monitor)
+                        err     java.io.PrintStream     standard error  (VDU - Monitor)
+
+                        void exit(int);
+                        void gc();
+
+    Math            represent a lot of mathematical operations. And all these mehtods are static.
+
+    String          is a class used to represent a group of characters called strings.
+
+                    string objects and string literals.
+
+                    String str1 = "Hello World";
+                    String str2 = "Hello World";
+                    String str3 = "Hello";
+
+                    str1,str2 and str3 are all string objects
+                    "Hello World" and "Hello" are string literals.
+
+                    Every string literal is a string object.
+                    All string objects are maintained in a isolated memory block called 'String Pool'.
+                    This is to avoid reallocating same strings.
+                    Which means str1 and str2 are two names of the smae string objects allocted.
+
+                    The string objects are immutable. Which means that a string can not be
+                    mofied in its place.
+
+                    str3 = str3 +" Vamsy"; 
+
+                    str3 is now "Hello Vamsy" but in the string pool we will have
+                    both "Hello" and "Hello Vamsy" and str3 is redirected to point "Hello Vamsy"
+                    but the "Hello" is still there without modification.
+
+                    this makes string manipulation highly costly. Hence direct string manipulation
+                    are to be avoided.
+
     StringBuilder
-    StringBuffer
+    StringBuffer        Both stringbuffer and stringbuilder are classes
+                        propsoed to support string manipulations
+
+                        1. load a string into StringBuffer or StringBuilder
+                            2. do as many manipulations as we want
+                                3. extract the modfiied string from StringBuffer or StringBuilder.
     
+            Wrapper Classes 
     Integer
     Short
     Long
@@ -924,10 +966,85 @@ java.lang               Wrappers,Multi-Thread,Exception Handling
     Boolean
     Void
 
-    Throwable
-    Exception
-    RuntimeExcetpion
+                        int x = 45;
+                        Integer intObj = new Integer(x);    //Boxing
+                        int y = intObj.value();             //Unboxing      < JDK 1.5
 
+                        int a = 67;
+                        Integer intObj2 = a;                //Auto-Boxing
+                        int b = intObj2;                    //Auto-Unboxing     
+
+    assignment:
+            accept a string and find out how many words, characters, digits and special characters
+            we have in that string.
+
+                String str = "This is Vamsy. And you can call me at 9052224753. This is a testing string..";
+
+            package com.java.loan.varity;
+            
+            public class App03 {
+                public static void main(String[] args) {
+                    String str = "Java Python Scala 98765 *&";
+
+                    int count = str.split(" ").length;
+                    int charCount = str.length();
+                    int digits = 0;
+                    int spCount = 0;
+
+                    for (int i = 0; i < str.length(); i++) {
+                        if (str.charAt(i) >= 48 && str.charAt(i) <= 57)
+                            digits++;
+                        if (!Character.isDigit(str.charAt(i)) && !Character.isLetter(str.charAt(i))
+                                && !Character.isWhitespace(str.charAt(i))) {
+                            spCount++;
+                    }
+                
+                    System.out.println("Number of words in a string : " + count);
+                    System.out.println("Number of Charater : " + charCount);
+                    System.out.println("Total Number of Digits
+                }
+            }
+
+Exception Handling
+-----------------------------------------------------------------------------------------------------
+
+    java.lang.Throwable     (interface)
+            |
+            |
+        ----------------------
+        |                    |
+    java.lang.Exception     java.lang.Error
+        |
+    java.lang.RuntimeExcetpion
+
+
+    CHECKED EXCEPTIONS          All sub-classes from Exception class including Exception class
+
+    UN-CHECKED EXCEPTIONS       All sub-classes from RuntimeException class including RuntimeException class
+
+    Un-Checked Exceptions are expected to be avoided. they are not supposed to be handled. That is the
+    reason that compiler do not check if these exceptions are handled or not and hence the name unchecked.
+
+        public int divide(int a,int b){
+            return a/b;
+        }
+
+        here an ArithmeticException is possible.
+
+        public int divide(int a,int b){
+            return b!=0? a/b : 0;
+        }
+
+    Checked Exceptions can not be avoided but msut be handled using a try..catch statement.
+    A compiler will not allow the compilaiton if these exceptions are not handled hence the name checked.
+
+    
+
+Multi-Threading
+-----------------------------------------------------------------------------------------------------
     Runnable
     Thread
+
+Collections
+-----------------------------------------------------------------------------------------------------
 
