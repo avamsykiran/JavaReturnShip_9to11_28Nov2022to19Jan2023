@@ -1038,7 +1038,75 @@ Exception Handling
     Checked Exceptions can not be avoided but msut be handled using a try..catch statement.
     A compiler will not allow the compilaiton if these exceptions are not handled hence the name checked.
 
+    try{
+        //statements that may raise a checked exception
+    }catch(ExceptionType1 exceptionObj){
+        //alkternate code 1 
+    }catch(ExceptionType2 exceptionObj){
+        //alkternate code 2
+    }catch(ExceptionType3 exceptionObj){
+        //alkternate code 3
+    }finally{
+        //code written here gets executed at any cost.
+    }
+
+    try{
+        //statements that may raise a checked exception
+    }catch(ExceptionType1 | ExceptionType2 exceptionObj){
+        //alkternate code for exception type1 and type2
+    }catch(ExceptionType3 exceptionObj){
+        //alkternate code 3
+    }finally{
+        //code written here gets executed at any cost.
+    }
+
+    User defined exceptions are intended to create our own exception. We can create a class and extend it from
+    eithe Exception or RuntimeException for a checked or a unchecked exception respectivly.
+
+    user defined exceptions are raised uwing 'throw' keyword.
+    to transfer an exception from one method to its caller method 'throws' keyword is used.
+
+Assignment - LoanAdvisor
+----------------------------------------------------------------------------------------------------
+
+    package com.cts.loanadvisor.model
+
+    public class Loan{
+
+        private double principal;           //ACCEPTED FROM USER
+        private double roi;                 //ACCEPTED FROM USER
+        private double numberOfEmis;        //ACCEPTED FROM USER
+        private double emi;                 //COMPUTED
+        private double totalPayableAmount;  //COMPUTED emi*numberOfEmis
+        private double totalPayableInterest;//COMPUTEd totalPaaybleAmount-principal
+
+        //constructors and gettrs and setters.
+    }
+
+    package com.cts.loanadvisor.service
+
+    public class LoanService{
+        
+        public void compute(Loan loan){
+            //all validations and computations
+            //principal or roi or numberOfEmis can not be negative
+            //roi must be between 0.1 to 1.0
+            //raisxe respective exception if needed
+        }
     
+    }
+     
+    package com.cts.loanadvisor.ui;
+
+    public class LoanAdvisorApp{
+        public static void main(String a[]){
+            //we need accept an option to continue or not
+            //we have to run the below steps as long as the user wants to continue..
+                //1. accept the p,t and r
+                //2. display the emis and other computed details.
+                //3. display err if any
+        }
+    }
 
 Multi-Threading
 -----------------------------------------------------------------------------------------------------
