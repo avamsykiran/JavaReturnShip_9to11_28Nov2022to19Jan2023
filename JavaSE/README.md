@@ -1078,7 +1078,7 @@ Assignment - LoanAdvisor
         private double numberOfEmis;        //ACCEPTED FROM USER
         private double emi;                 //COMPUTED
         private double totalPayableAmount;  //COMPUTED emi*numberOfEmis
-        private double totalPayableInterest;//COMPUTEd totalPaaybleAmount-principal
+        private double totalPayableInterest;//COMPUTED totalPaaybleAmount-principal
 
         //constructors and gettrs and setters.
     }
@@ -1110,9 +1110,61 @@ Assignment - LoanAdvisor
 
 Multi-Threading
 -----------------------------------------------------------------------------------------------------
-    Runnable
-    Thread
+    java.lang.Runnable  (interface)     void run();
+        |
+    java.lang.Thread     (class)        Thread()
+                                        Thread(Runnable);
+                                        Thread(String name);
+                                        Thread(String name,Runnable);
+
+                                        void start();
+                                        String getName();
+                                        void setName(String name);
+
+                                        static void sleep(long);
+                                        static Thread currentThread();
 
 Collections
 -----------------------------------------------------------------------------------------------------
 
+    Generics        allows us to create ADTs in java.
+                    ADT - Abstract Data Types.
+
+                    search algorithm on arrays
+
+                    class DataAlgorithm<T>{
+                        public void search(T[] array,T searchElement){
+                            for(int i=0;i<=array.length;i++){
+                                if(array[i].equals(searchElement)){
+                                    System.out.println("Element found @ "+i);      
+                                    break;
+                                }
+                            }
+
+                            System.out.println("Element is not found");
+                        }
+                    }
+
+                    DataAlgorithm<Employee> da1 = new DataAlgorithm<>();
+                    da1.search(empArray,empToFind);
+
+                    DataAlgorithm<String> da2 = new DataAlgorithm<>();
+                    da2.search(strArray,strToFind);
+
+    Java Collections are java's approach to Data Structures.
+
+        java.util.Collection (interface)        add(Ele),remove(ele),contains(Ele),isEmpty(),size(),stream()
+            |
+            |- Set (interface)                  represents a non-linear data structure
+            |   |
+            |   |- HashSet (class)
+            |   |- LinkedHashSet (class)
+            |   |
+            |   |- SortedSet (interface)
+            |   |   |- TreeSet (class)
+            |
+            |- List (interface)                 represents a linear data structure
+            |   |
+            |   |- LinkedList (class)
+            |   |- ArrayList (class)
+            |   |- Vector (class)
