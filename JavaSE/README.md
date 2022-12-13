@@ -1124,6 +1124,19 @@ Multi-Threading
                                         static void sleep(long);
                                         static Thread currentThread();
 
+java.time (>1.8)
+-----------------------------------------------------------------------------------------------------
+
+    LocalDate           now(), of(year,Month,date)
+    LocalTime           now(), of(hour,min,sec)
+    LocalDateTime       now(), of(year,Month,date,hour,min,sec)
+    ZonedDateTime       now(ZoneId)
+
+    Period    .between(startDate,endDate)
+    Duration  .between(startTime,endTime)  
+
+    DateTimeFormatter
+
 Collections
 -----------------------------------------------------------------------------------------------------
 
@@ -1153,7 +1166,7 @@ Collections
 
     Java Collections are java's approach to Data Structures.
 
-        java.util.Collection (interface)        add(Ele),remove(ele),contains(Ele),isEmpty(),size(),stream()
+        java.util.Collection (interface)        add(ele),remove(ele),contains(ele),isEmpty(),size(),stream()
             |
             |- Set (interface)                  represents a non-linear data structure
             |   |
@@ -1168,3 +1181,38 @@ Collections
             |   |- LinkedList (class)
             |   |- ArrayList (class)
             |   |- Vector (class)
+
+
+            Set                         List
+                has no index                index exists and index based operations are supported.
+                no duplicates allowed       duplicates are allowed.
+                single null is allowed      multiple nulls are allowed.
+
+
+            Set Implementations
+                HashSet                 does not promise any retrival order.
+                LinkedHashSet           elements are retrived in the insertion order.
+                TreeSet                 elements are retrived in the sorted order.
+
+            List Implementations
+                Vector                  growable array, synchronized
+                ArrayList               growable array, not synchronized
+                LinkedList              doubly linked list algorithm
+
+            java.lang.Comparable        (default comparision strategy)
+                    public abstract int compareTo(ele)
+
+            java.util.Comparator        (customized comparision strategy)
+                    public abstract int compare(ele1,ele2)
+
+ Assignment
+ ----------------------------------------------------------------------
+
+    An application to accep the detials of a loan like loanAmount,roi and number of emis and firstEmiDate in a 'Loan' class.                
+    Use a LoanService to generate the amortization table of the loan and display.
+
+        if number emis are 6
+
+        EMI.Number      dueDate     EMIAmount       InterestComponent   PrincipalComponent
+        1               5-Dec-2022  7500            3000                3500
+        2               5-Jan-2022  7500            2900                3600
