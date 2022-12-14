@@ -1216,3 +1216,73 @@ Collections
         EMI.Number      dueDate     EMIAmount       InterestComponent   PrincipalComponent
         1               5-Dec-2022  7500            3000                3500
         2               5-Jan-2022  7500            2900                3600
+
+Functional Interfaces and Lambda Expressions
+-----------------------------------------------------------------------
+
+    An interface having only one abstract method is called a functional interface.
+    To ensure that an interface reamins as funtional interface, it is marked with @FunctionalInterface.
+
+    if the method in a functional interface is
+            of no params but returns                then we call it a Supplier
+            having params but doestn't return       then we call it a Consumer
+            returning boolean                       then we call it a Predicate
+            none of the above                       then we call it a Functional
+
+    Significance of functional interfaces is that a functional interface can be 
+    implemented using a lambda expression.
+
+    (argList) -> (returnExpression)
+
+    java.util.function.BinaryOperator<Integer> sum = (a,b) -> a+b;
+
+    java.util.function.Consumer<Object> c1 = System.out::println ;
+    
+Streams API
+-------------------------------------------------------------------------------
+
+    a stream is a flow of data.
+
+    OverhaedTank ---|                                                   //stream source             Arrau or List or Set or Map
+                    |
+                    |
+                    ---DirtFilter---|                                   //intermdiate operation
+                                    |
+                                    |   
+                                    --Chlorination--|                   //intermidiate operation
+                                                    |
+                                                    |
+                                                    |
+                                                Collect into a Bucket   //stream terminal
+
+    java.util.stream.Stream     stream = Arrays.of(array);
+    java.util.stream.Stream     stream = listObj.stream();
+    java.util.stream.Stream     stream = setObj.stream();
+
+        a stream once used can not be reused.
+
+            forEach     accepts a consumer and executes the consuemr on each and every value in the stream.
+                        terminal operation.
+
+            reduce      accepts a binaryOperator, and excute it on each pair of eles in the stream & finally returns one value.
+                        terminal operation.
+
+            filter      accepts a predicate, and returns a new stream contining only thsoe elements that passed the predicate
+                        intermidiate operation.
+
+            map         accepts a transformer, and returns a new stream of transformed elements.
+                        intermidiate operation.
+
+            collect     is used to collect all the values from a stream into a list or set.
+                        terminal operation.
+
+                        
+            
+
+            BinaryOperator<Integer> product = (a,b) -> a*b;
+
+            int[] array = new int[]{1,2,3,4,5};
+
+            Arrays.stream(array).reduce(product);
+            
+                product(product(product(product(1,2),3),4),5) --------------> 120
