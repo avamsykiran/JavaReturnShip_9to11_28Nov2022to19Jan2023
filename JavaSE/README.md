@@ -1276,9 +1276,6 @@ Streams API
             collect     is used to collect all the values from a stream into a list or set.
                         terminal operation.
 
-                        
-            
-
             BinaryOperator<Integer> product = (a,b) -> a*b;
 
             int[] array = new int[]{1,2,3,4,5};
@@ -1286,3 +1283,38 @@ Streams API
             Arrays.stream(array).reduce(product);
             
                 product(product(product(product(1,2),3),4),5) --------------> 120
+
+IO Streams
+--------------------------------------------------------------------------------------------
+
+    java.io
+            InputStream
+                FileInputStream
+                DataInputStream
+                ObjectInputStream
+
+            OutputStream
+                FileOutputStream
+                PrintStream
+                DataOutputStream
+                ObjectOututStream
+
+            Reader
+                InputStreamReader
+                BufferedReader
+                FileReader
+
+            Writer
+                PrintWriter
+                FileWriter
+
+            File
+            IOException
+
+    java.nio
+            Path
+            Paths
+            Files
+            Directories
+
+

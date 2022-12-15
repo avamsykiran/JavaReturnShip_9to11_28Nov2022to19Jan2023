@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import com.cts.javacollections.model.Book;
@@ -48,7 +49,11 @@ public class App05 {
 		books.stream().filter( b -> b.getPrice()<=500 ).forEach(System.out::println);
 		
 		System.out.println("-------------------------------------------------------------------------");
-		books.stream().map(b -> b.getTitle()).forEach(System.out::println);
+		//books.stream().map(b -> b.getTitle()).forEach(System.out::println);
+		
+		List<String> titles = books.stream().map(b -> b.getTitle()).collect(Collectors.toList());
+		System.out.println(titles);
+		
 	}
 
 }
