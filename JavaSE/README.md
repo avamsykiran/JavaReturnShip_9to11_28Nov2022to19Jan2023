@@ -1317,4 +1317,19 @@ IO Streams
             Files
             Directories
 
+Multi Layer Archetecture
+-------------------------------------------------------------
 
+    database    <---SQL----> [  DAO     <----model----->    SERVICE  <-----model------>   UI  ]  <--> EndUser
+
+        DAO     Data Access Object      Persistence Logic (inserting/updating/deleting/retriveing from db)
+
+        model   that repreent the domain objects to hold the data
+
+        SERVICE                         Bussiness Logic (Validations/Computation/Raising UserDefinedExceptions....)
+
+        UI      User Interface          Presentation Logic (Accepting and displaying .....)
+
+
+Java Evolution and features:
+    https://www.aegissofttech.com/articles/java-8-9-10-11-new-key-features-and-enhancements.html
