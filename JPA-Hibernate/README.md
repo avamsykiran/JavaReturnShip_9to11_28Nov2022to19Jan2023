@@ -158,3 +158,38 @@ JPA
                                     
 
             JPQL    -   Java Persistence Query Language
+
+            Hibernate API
+
+                    SessionFactory
+                        |- Session
+                                :: save(entity)
+                                :: update(entity)
+                                :: saveOrUpdate(entity)
+                                :: remove(entity)
+                                :: get(pk,EntityClass)
+                                :: beginTransaction()   : Transaction
+                                :: createQuery(String hql) : Query
+                                :: createQuery(String hql,EntityClass) : TypedQuery
+
+            HQL    -    Hibernate Query Language
+
+
+            Entity Life Cycle   
+
+                Transiant/New Stage
+                        Employee emp = new Employee();
+                        emp.setSalary(12000);
+                        //emp is in transiant
+
+                Persistence/Managed Stage
+                        entityManage.persist(emp);
+                        Employee emp2 = entityManager.find(101,Employee.class);
+                        emp2.setSalary(56700);
+                        emp.setName("Vamsy");
+                        //emp and emp2 is in persisteant stage
+
+                Detached Stage
+                        entityManager.close();
+
+                        //emp and emp2 are detached
