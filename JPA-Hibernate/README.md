@@ -99,4 +99,62 @@ JPA
             EndUser <-->    UI  <----->  SERVICE <-----> DAO <---> JPA <----> Hibernate <-----> JDBC <---> dbDriver <--> DB
 
 
-            
+            JPA EntityMapping Annotations
+
+                @Entity                 class level
+                @Table(name="")         class level
+
+                @Inheretence            class level
+                @DiscriminatorColumn    class level
+                @DiscriminatorValue     class level
+
+                @Embadable              class level
+                @EmbadedId              field level
+                @Embeded                field level
+
+                @Column                 field level
+                @Transiant              field level
+
+                @Id                     field level
+                @GeneratedValue         field level
+
+                @Enumerated             field level
+                @JoinColumn             field level
+
+                @OneToOne               field level
+                @OneToMany              field level
+                @ManyToOne              field level
+
+            JPA API
+
+                    Persistence.createEntityManagerFactory(String persisteneUnitName);
+                        |- EntityManagerFactory :: createEntityManager()
+                                |- EntityManager
+                                        :: persist(entity)                              insert
+                                        :: remove(entity)                               delete
+                                        :: merge(entity)                                update
+                                        :: find(pk,EntityClass)                         retrive
+                                        :: getTransaction() : EntityTransaction
+                                        :: createQuery(String jpql) : Query
+                                        :: createQuery(String jpql,EntityClass) : TypedQuery
+
+                                    EntityTransaction
+                                        :: commit()
+                                        :: rollback()
+
+                                    Query   /   TypedQuery
+                                        ::getResultList()                           retrive the records
+
+            JPA confioguration thru persistence.xml
+
+                <persistence>
+                    <persistence-unit name="pu1">
+                        <!-- the database name, connection url, userid,password...-->
+                    </persistenc-unit>
+                    <persistence-unit name="pu2">
+                        <!-- the database name, connection url, userid,password...-->
+                    </persistenc-unit>
+                </persistence>
+                                    
+
+            JPQL    -   Java Persistence Query Language
