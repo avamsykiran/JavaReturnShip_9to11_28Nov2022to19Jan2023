@@ -193,3 +193,35 @@ JPA
                         entityManager.close();
 
                         //emp and emp2 are detached
+
+
+Assignment
+---------------------------------------------------------------------
+ObjectMapDiagram
+
+        Course
+            courseId    (number, auto-generated)
+            title
+            fee
+            Set<Student> students
+
+        Student
+            studentId (number, auto-generated)
+            name
+            Course course
+            mailId
+            Asset laptop
+            ProgressReport progress
+
+        Asset
+            assetId (number , auto-generated)
+            model
+            make
+            Student custodian
+
+        ProgressReport
+            unitTest1Score
+            unitTest2Score
+            finalTestScore
+
+            
