@@ -95,6 +95,11 @@ Spring Framework (Spring 5)
 
                     }
 
+                    @Configuration
+                    @ComponentScan("base.package")
+                    public class MyBeanConfiguaration {
+                    }
+
             Java Based Configuaration
 
                     @Configuration
@@ -111,4 +116,42 @@ Spring Framework (Spring 5)
                         }
                     }
 
+            Autowiring
 
+                is injecting a matching dependency into a field of a component.
+                (injecting a bean into another bean).
+
+                @Component
+                public class ClassA{
+
+                }
+
+                @Component
+                public class ClassB{
+                    
+                    @Autowired                      //field injection
+                    private ClassA classAObj;
+
+                }
+
+                @Component
+                public class ClassC{
+                    
+                    private ClassA classAObj;
+
+                    @Autorired                          //constructor injection
+                    public ClassC(ClassA classAObj){
+                        this.classAObj=classAObj;
+                    }
+                }
+
+                @Component
+                public class ClassD{
+                    
+                    private ClassA classAObj;
+
+                    @Autorired                          //setter injection
+                    public void setClassAObj(ClassA classAObj){
+                        this.classAObj=classAObj;
+                    }
+                }
