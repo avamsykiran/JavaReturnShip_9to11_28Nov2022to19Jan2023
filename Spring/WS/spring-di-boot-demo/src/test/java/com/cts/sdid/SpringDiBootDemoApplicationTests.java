@@ -1,0 +1,13 @@
+package com.cts.sdid;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SpringDiBootDemoApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

@@ -155,3 +155,53 @@ Spring Framework (Spring 5)
                         this.classAObj=classAObj;
                     }
                 }
+
+            autowiring byType
+                dependecies of a type are mapped to beans of the same type.
+                it expects one and only matching bean for this to work.
+
+            autowiring byName
+                dependecies are mapped to beans identified by the bean name.
+                
+                @Qualifer
+
+        External Configuaration
+
+            we can inject values to fiels through '.properties' file.
+
+            @PropertySource("fileName.properties")
+
+            @Value("spEL") ius used to inject a property value into a field
+
+        Bean Scope
+
+            @Scope("singleton|prototype|session|request|global-session")
+
+    Spring Boot
+    --------------------------------------------------------------------------------------------       
+
+            is a auto-configuaration module and provides RAD (Rapid Application Development)
+
+            with Spring 5  we get Spring boot 2
+
+            @SpringBootApplication  =   @Configuaration
+                                        @PropertySource("application.properties")
+                                        @ComponentScan
+
+            Spring Boot application are provided with embeded servers whenever needed.
+
+            Spring Boot Application Execution Flow
+                1. ApplicationContext is build along with all scanned componnets and beans.
+                2. Execute spring entry points (if any)
+                3. Start the embeded server (if any).
+                4. it terminates
+
+            Spring Entry points - SpringRunners
+                                    |- ApplicationRunner    public abstract void run(ApplicationArgs arg[])
+                                    |- CommandLineRunner    public abstract void run(String arg[])
+
+            A spring boot application cna be created in three ways:
+                1. Spring Boot CLI                  > springboot init
+                2. Spring Boot Initialize tool      https://start.spring.io
+                3. Spring Tool Suite - Spring Starter Project Wizard
+
