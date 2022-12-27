@@ -205,3 +205,43 @@ Spring Framework (Spring 5)
                 2. Spring Boot Initialize tool      https://start.spring.io
                 3. Spring Tool Suite - Spring Starter Project Wizard
 
+    Spring Data JPA
+    ------------------------------------------------------------------------------------------------
+
+        is a Automated ORM module for SQL databases.
+
+        you declare a repository and the Spring Data JPA will provide the implementation.
+
+        CrudRepository
+            |-JpaRepository
+                    List<Entity> findAll()
+                    Optional<Entity> findById(id)
+                    boolean existsById(id)
+                    Entity save(Entity entity)
+                    void deleteById(id)
+
+        @Entity
+        @Table(name="emps")
+        public class Employee{
+
+            @Id
+            private Long empId;
+            private String name;
+            private Double salary;
+            private LocalDate joinDate;
+            private String mailId;
+
+            //constructors, getters and setters , toString .....
+        }
+
+        public interface EmployeeRepo extends JpaRepository<Employee,Long> {
+            boolean existsByMailId(String mailId);
+            Optional<Employee> findByMailId(String mailId);
+            List<Employee> findAllByName(String name);
+
+            @Query("SELECT e FROM Employee e WHERE e.salary BETWEEN :lb AND :ub")
+            List<Employee> getAllEmployeesInSalaryRange(double lb,double ub);
+        }
+
+
+
