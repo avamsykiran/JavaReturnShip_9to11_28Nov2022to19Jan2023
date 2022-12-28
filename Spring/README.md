@@ -244,4 +244,72 @@ Spring Framework (Spring 5)
         }
 
 
+    Spring Web
+    ------------------------------------------------------------------------------------------------
+
+
+        is a spring movuel sued to develop web-mvc and rest-api applications.
+
+        MVC?
+
+            Model View and Controller
+
+            repos    <--entity-->  services   <-model->  controllers <----------REQ------     webClient
+                                                            |                                   ↑
+                                                            |                                   |
+                                                           model                            html+css+js
+                                                            |                                   |
+                                                            ↓                                   |
+                                                           views    --------RESP--------->      |
+
+            in java Servlets were used as controllers and .jsp/.jsf/thymeleaf ..etc., view engines
+
+        Spring offers Single FrontController MVC !
+
+        Single FrontController MVC?
+
+            repos  <--entity-->  services   <-model->  controllers <-model->  FrontController   <---REQ---    webClient
+                                                                                    |                            ↑
+                                                                                    |                            |
+                                                                                model                       html+css+js
+                                                                                    |                            |
+                                                                                    ↓                            |
+                                                                                  views    -----RESP-------->    |
+
+            FrontController ?
+                            org.springframework.web.servlet.DispatcherServlet
+
+                            1. receving a request
+                            2. extract any data (in the form of request parameters/url parameters/request body) in the request 
+                            3. the relevant controller's action method is invoked by passing the extracted data to it.
+                            4. after invoking actiuon method a viewName or a ModelAndView is received .
+                            5. the relevent view is given the model and is responded to the client.
+
+            Controller ?
+                            is a POJO that provides methods called actions.
+
+                            an action method is expected to receive data and return a viewName or ModelAndView object.
+
+                            each controller is annoted as @Controller
+
+                            UrlResolver an interface implemented by SimpleUrlResolver class which is used
+                            to map a specific action method to a specific kind of request. 
+
+                            @RequestMapping(value="anyUrl",method=RequestMethod.GET|RequestMethod.POST) is applied
+                            on each action method to map a request on basis of its url and request method.
+
+                            @Controller
+                            public class DefaultController {
+
+                                @RequestMapping(value="/home",method=RequestMethod.GET)
+                                public String homeAction(){
+                                    return "index";
+                                }
+                            }
+
+                            assuming that the web server is running on port number 9999
+                            a GET requst raise to the url http://localhost:9999/home url will invoke the above action method.
+
+
+
 
