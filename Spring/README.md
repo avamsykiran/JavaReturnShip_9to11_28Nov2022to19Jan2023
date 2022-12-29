@@ -311,5 +311,30 @@ Spring Framework (Spring 5)
                             a GET requst raise to the url http://localhost:9999/home url will invoke the above action method.
 
 
+                            ViewResolver interface implemented by ResourceBundleViewResolver, XmlResourceViewResolver or
+                            InternalResourceViewResolver classes.
+
+                            FrontController can use any of these view resolver to map a viewName to a VIEW.
+
+                            Spring boot by default configs InternalResourceViewResolver.
+
+                            InternalResourceViewResolver has two proeprties prefix and suffix which are configuarable in
+                            application.properties . As per this the actual view = prefix+viewName+suffix.
+
+                            @RequestMapping
+                                @GetMapping
+                                @PostMapping
+                                @PutMapping
+                                @DeleteMapping 
+
+                            @RequestParam           used to extract request parameters in a url
+                            @ModelAttribute         used to extract request parameters and fill them in a model object fields.
+
+            Views?
+                            is any view engine that can generate an html content to be passed
+                            as response to the client.
+
+                            JSP, JSF, Thymeleaf ..etc., are variety of view engines supported by spring web module.
+
 
 
