@@ -335,6 +335,24 @@ Spring Framework (Spring 5)
                             as response to the client.
 
                             JSP, JSF, Thymeleaf ..etc., are variety of view engines supported by spring web module.
+                            
+                            For JSP and JSTL:
 
+                                <dependency>
+                                    <groupId>org.apache.tomcat.embed</groupId>
+                                    <artifactId>tomcat-embed-jasper</artifactId>
+                                    <scope>provided</scope>
+                                </dependency>
+                                <dependency>
+                                    <groupId>javax.servlet</groupId>
+                                    <artifactId>jstl</artifactId>
+                                    <version>1.2</version>
+                                </dependency>
 
+                            For Thymeleaf :
+                            
+                                <dependency>
+                                    <groupId>org.springframework.boot</groupId>
+                                    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                                </dependency>
 
