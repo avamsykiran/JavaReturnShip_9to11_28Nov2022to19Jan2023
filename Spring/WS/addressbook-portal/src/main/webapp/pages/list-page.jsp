@@ -27,6 +27,7 @@
 							<th>Mail</th>
 							<th>DoB</th>
 							<th>Age</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -38,6 +39,10 @@
 								<td>${c.mailId }</td>
 								<td>${c.dateOfBirth }</td>
 								<td>${c.age } years </td>
+								<td>
+									<a href="/editContact?cid=${c.contactId }">EDIT</a> <span>|</span>
+									<a href="/delContact?cid=${c.contactId }">DELETE</a>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

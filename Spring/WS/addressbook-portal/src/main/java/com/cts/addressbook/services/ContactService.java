@@ -6,7 +6,7 @@ import com.cts.addressbook.entity.Contact;
 
 public interface ContactService {
 	List<Contact> findAll();
-	Contact findById(long contactId);
+	Contact findById(int contactId);
 	Contact save(Contact contact);
-	void deleteById(long contactId);
+	void deleteById(int contactId);
 }

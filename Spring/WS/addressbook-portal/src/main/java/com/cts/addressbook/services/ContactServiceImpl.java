@@ -22,7 +22,7 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Override
-	public Contact findById(long contactId) {
+	public Contact findById(int contactId) {
 		return dao.findById(contactId).orElse(null);
 	}
 
@@ -34,7 +34,7 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Override
-	public void deleteById(long contactId) {
+	public void deleteById(int contactId) {
 		dao.deleteById(contactId);
 	}
 
