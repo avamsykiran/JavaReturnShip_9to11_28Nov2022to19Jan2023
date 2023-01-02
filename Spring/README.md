@@ -356,3 +356,48 @@ Spring Framework (Spring 5)
                                     <artifactId>spring-boot-starter-thymeleaf</artifactId>
                                 </dependency>
 
+        REST api
+                otherwise known as rest web services.
+
+                web services are centrally hosted functions that get 
+                invoked by a request sent.
+
+                SOAP Web Services                   execute on SOAP protocol and use XML as media
+                HTTP Web Services / REST api        execute on HTTP protocol and use a varity of media.
+
+                    Standards Of REST api
+
+                        1. Urls and http methods mapped to CRUD operations.
+                        2. Sharing success or error with the client once a req is processed.
+
+            
+                    Entity: Employee
+                    URL:    /emps
+
+                    CRUD                        HTTP                Status On       Status On           Status On
+                    Operations                  METHOD  URL         Success         Client Side Error   Server Side Error
+                    --------------------------------------------------------------------------------------------------
+                    Retrive all records         GET     /emps       200-OK          N/A                 500-Internal server error
+                    Retrive a record (id=101)   GET     /emps/101   200-OK          404-NOT FOUND       500-Internal server error
+                    Add a record                POST    /emps       201-CREATED     400-BAD REQUEST     500-Internal server error
+                    Update a record             PUT     /emps       203-ACCEPTED    400-BAD REQUEST     500-Internal server error
+                    Delete a record (id=101)    DELETE  /emps/101   204-NO CONTENT  404-NOT FOUND       500-Internal server error
+
+                    Http Status Codes
+
+                    1xx             to indicate that the request is received by the server and is under process
+                    3xx             to indicate that the request is received and is being redirected.
+
+                    2xx             to indicate that the request is processed successfully
+                    4xx             to indicate that the request is not processed due to a client side error
+                    5xx             to indicate that the request is not processed due to a server side error
+
+                    
+                    @RestController     =   @Controller + @ResponseBody
+
+                    ResponseEntity      =   Model/ResposneBody  +   HttpStatus
+
+                    @RequestBody
+
+                    @RestControllerAdvice
+                    @ExceptionHandler
