@@ -64,9 +64,9 @@ Microservices
 
             Integration Design Patterns
                 Aggregator Design Pattern
+                Client/UI Side Componenet Design Pattern
                 API Gateway Design Pattern
-                Client Side Componenet Design Pattern
-
+                
             Observability Design Patterns
                 Distributed Tracing Design Pattern
                 Log Aggregation Design Pattern
@@ -154,3 +154,65 @@ Microservices
                     Double totalCredit
                     Double totalDebit
                     Double statementBalance
+
+        Database Per Service Design Pattern
+
+            profile-service     txns-service        statement-service
+                |                   |                   
+              profileDB            txnsDb 
+
+        Aggregator Design Pattern
+
+                          CLIENT(S)
+                            |
+                            |statement
+                            |
+                    statement-service 
+                        |         |
+  accountHolder Details |         | currentBal and txns              
+                        |         |
+            profile-service     txns-service        
+                |                   |                   
+              profileDB            txnsDb 
+
+        API Gateway Design Pattern
+
+            CLIENT(S)
+                |
+                |
+            API-Gateway
+                |
+                ------------------------------------------------------------------
+                |                           |                       |
+            profile-service  -------   txn-service   -----   statement-service
+                    |---------------------------------------------|
+
+        
+
+        Case Study - D2H Consumer Application
+        ------------------------------------------------------
+
+            Mono1Lytic Application High Level Requirements
+            1. a D2h consumer can register or edit his detials
+            2. a registered cosumer can choose his subscription to contain or not to contain various TV channels
+            3. A d2h administrator can add or modify the channel detials like channelId, channelName, monthlyRate ..etc.,
+            4. a registered consumer must be able to receive a monthly invoice for his subscriptions for that calander month.
+            5. a registered consumer must be able pay his invoices 
+            6. a registered consumer must be able to acess his older invocies and payment details.
+
+        Decomposition By Domain
+
+            subscriber-service
+                1. a D2h consumer can register or edit his detials
+                2. a registered cosumer can choose his subscription to contain or not to contain various TV channels
+            
+            channels-service
+                3. A d2h administrator can add or modify the channel detials like channelId, channelName, monthlyRate ..etc.,
+            
+            invoices-service
+                4. a registered consumer must be able to receive a monthly invoice for his subscriptions for that calander month.
+                5. a registered consumer must be able pay his invoices 
+                6. a registered consumer must be able to acess his older invocies and payment details.
+
+        
+        
