@@ -77,3 +77,80 @@ Microservices
                 Cirucuite Breaking Design Pattern
 
 
+        Case Study - Budget Tracking Application
+        ------------------------------------------------------
+
+            Mono1Lytic Application High Level Requirements
+            1. Each consumer muzt register an account
+            2. Each registered user can record an transaction detials like amount,txnDate,txnType(CREDIT/DEBIT) ...etc.,
+            3. Each registered user can edit/delete a recorded transaction
+            4. Each registered user can ask for the account balance.
+            5. Each registered user can ask for a account statement monthly
+            6. Each registered user can ask for a account statement annually
+
+        
+        Decomposition by Doamin
+
+            will help in decomposing the monolythic apprioach into isolated microservices.
+
+            profile-service
+                1. Each consumer muzt register an account
+
+            txn-service
+                2. Each registered user can record an transaction detials like amount,txnDate,txnType(CREDIT/DEBIT) ...etc.,
+                3. Each registered user can edit/delete a recorded transaction
+                4. Each registered user can ask for the account balance.
+            
+            stateemnt-service
+                5. Each registered user can ask for a account statement monthly
+                6. Each registered user can ask for a account statement annually
+
+        Decomposition by Sub-Doamin
+
+            will help in identifing god classes and fix a bounded-context for them.
+
+            profile-service
+                AccountHolder       
+                    Long ahId
+                    String name
+                    String mobile
+                    String mail
+
+            txn-service
+                AccountHolder
+                    Long ahId
+                    Double currentBalance
+                    Set<Txn> transactions
+
+                Txn
+                    Long txnId
+                    String header
+                    Double amount
+                    LocalDate txnDate
+                    TxnType type
+                    AccountHolder holder
+
+
+            statement-service
+                AccountHolder
+                    Long ahId
+                    String name
+                    String mobile
+                    String mail
+                    Double currentBalance
+
+                Txn
+                    Long txnId
+                    String header
+                    Double amount
+                    LocalDate txnDate
+                    TxnType type
+
+                Statement
+                    AccountHolder profile
+                    Set<Txn> txns
+                    LocalDate startDate
+                    LocalDate endDate
+                    Double totalCredit
+                    Double totalDebit
+                    Double statementBalance
