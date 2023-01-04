@@ -114,6 +114,5 @@ public class Txn implements Comparable<Txn> {
 	public int compareTo(Txn t) {
 		return txnId==null?1:txnId.compareTo(t.txnId);
 	}
-	
-	
+		
 }
