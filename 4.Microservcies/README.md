@@ -573,8 +573,6 @@ Microservices
                     
                     eureka.client.serviceUrl.defaultZone=http://localhost:9000/eureka/   
 
-            
-
         Case Study - D2H Consumer Application
         ------------------------------------------------------
 
