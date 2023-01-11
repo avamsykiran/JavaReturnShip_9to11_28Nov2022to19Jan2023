@@ -187,3 +187,32 @@ Angular
         ng g pipe PipeName --skip-tests
         ng g service ServiceName --skip-tests
         ng g interface InterfaceName 
+
+    Data Binding
+    ----------------------
+
+        the way of accessing the fields and methods of the component class in the component template.
+
+        Interpolation
+
+            will render the value of an expression on to the template.
+
+            syntax:     {{expression}}
+            eg1:        {{title}}
+            eg2:        {{a+b}}
+
+        Two-Way Data Binding
+
+            is used to write into a form-element value from a field and
+            is used to read a form-element value in to a field.
+
+            an inbuilt attrbute directive 'NgModel' from 'FormsModule of @angular/forms' is sued.
+
+            eg: <input type="number" [(ngModel)]="a" />
+
+        One-Way Data Binding
+            Attribute Binding
+            Event Binding
+            Style Binding
+            Css Class Binding
+    

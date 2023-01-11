@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app01';
+  title:string;
+
+  constructor(){
+    this.title="Vamsy`s Angular SPA";
+  }
 }
