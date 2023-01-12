@@ -144,20 +144,36 @@ Angular
 
                 Structural Directive
 
-            Service
-
-                    @Injectable({
-                        providedIn:'root'
-                    })
-                    class SalesService {}
+                    *ngIf
+                    *ngFor
+                    ngSwitch    *ngSwitchCase *ngDefault
 
             Pipe
+
+                is used to tranform data just befoer it is rendered.
+
+                in-built:
+
+                    lowercase
+                    uppercase
+                    titlecase
+                    number
+                    currency
+                    date
+                    async
             
                     @Pipe({
                         name:'in-words'
                     })
                     class InWordsPipe {}
 
+            Service
+
+                    @Injectable({
+                        providedIn:'root'
+                    })
+                    class SalesService {}
+           
 
     Angular CLI
     ----------------------
@@ -212,7 +228,31 @@ Angular
 
         One-Way Data Binding
             Attribute Binding
+
+                to bind a field with the attribute of an element.
+
+                syntax: <TagName [attribute]="field" > </TagName>
+
             Event Binding
+
+                to bind a method to an event attribute directive, so that the method is invoekd as a resposne to
+                any event that occurs.
+
+                event attribute directives:
+                    click, dblclick, mouseover, mouseleave, mousedown,mouseup, keydown, keyup, keypress,
+                    change, blur, focus, ngSubmit
+
+                syntax: <TagName (eventAttribute)="method()"> </TagName>
+
             Style Binding
+
+                to bind a field to a css-property.
+
+                syntax: <TagName [style.cssProperty]="field" > </TagName>
+
             Css Class Binding
+
+                to apply or remove a css-class on an element dynamically through a boolean field.
+
+                syntax: <TagName [class.className]="booleanField" > </TagName>
     

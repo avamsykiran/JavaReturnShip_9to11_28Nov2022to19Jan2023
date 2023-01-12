@@ -1,3 +1,23 @@
 <section class="wel">
+
+    <div>
+        <img 
+            [src]="logos[logoIndex]" 
+            (click)="toggle()"
+            [style.width.px]="logoWidth"
+            [class.centered]="centerFlag"
+            [class.bordered]="borderFlag"
+            />
+    </div>
+
     <p><strong>Hello <em>{{userName}}</em>! Its's good to see you here.</strong></p>
+
+    <form>
+        <div><label>UserName: <input type="text" [(ngModel)]="userName" name="tb1" /></label></div>
+        <div><label>Width: <input type="range" [(ngModel)]="logoWidth" name="tb2" min="100" max="500"/></label></div>
+        <div>
+            <label><input type="checkbox" name="cb1" [(ngModel)]="centerFlag" /> Apply Center</label>
+            <label><input type="checkbox" name="cb2" [(ngModel)]="borderFlag" /> Apply Border</label>
+        </div>
+    </form>
 </section>
