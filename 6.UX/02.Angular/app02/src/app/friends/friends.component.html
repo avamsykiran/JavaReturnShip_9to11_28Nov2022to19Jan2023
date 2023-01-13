@@ -1,0 +1,17 @@
+<section class="border border-info p-2 bg-info">
+    <h4>My Friends</h4>
+
+    <p *ngIf="friends.length==0">
+        <strong>Have no friends yet! Please add one.</strong>
+    </p>
+
+    <ol *ngIf="friends.length>0">
+        <li *ngFor="let f of friends">{{f}}</li>
+    </ol>
+
+    <form>
+        <label>Friend Name: <input type="text" name="tb1" [(ngModel)]="friend" /></label>
+        <button type="button" (click)="add()">ADD</button>
+        <button type="button" (click)="remove()">REMOVE</button>
+    </form>
+</section>

@@ -256,3 +256,31 @@ Angular
 
                 syntax: <TagName [class.className]="booleanField" > </TagName>
     
+    Bootstrap Integration
+    -----------------------------------------------------------------------
+
+        npm install bootstrap --save
+
+        add this style sheet to 'styles' section of angular.json
+        node_modules/bootstrap/dist/css/bootstrap.min.css
+
+        add this script to 'scripts' section of angular.json
+        node_modules/bootstrap/dist/js/bootstrap.min.js
+
+    Routing
+    -----------------------------------------------------------------------
+
+        RouterModule        from    '@angular/router'
+
+            Route               {path:'',component:ComponentName,pathMatch:'full|startsWith',children:[]}
+            Routes              Route[]
+            Router              is a service and offers two methods
+                                    navigate()
+                                    navigateByUrl()
+            ActivatedRoute      is a service offers methods to read url related data like path parameters,
+                                port, url ..etc.,
+            router-outlet       is a componenet used to hold space for the active component in the
+                                top-level-component template.
+            routerLink          is a attrubute directive, used on a 'a' tag instead of its 'href' attribute.
+            routerLinkActive    is a attribute directive, that takes a css-class to be applied on the active link.
+            

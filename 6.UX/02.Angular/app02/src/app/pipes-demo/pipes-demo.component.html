@@ -1,0 +1,45 @@
+<section class="border border-secondary p-2 bg-primary">
+    <h4>String Pipes</h4>
+    <div>
+        <p>{{str}}</p>
+        <p>{{str|lowercase}}</p>
+        <p>{{str|uppercase}}</p>
+        <p>{{str|titlecase}}</p>
+    </div>
+
+    <h4>Number Pipe</h4>
+    <div>
+        <div>{{num}}</div>
+        <div>{{num|number:'3.3-3'}}</div>
+        <div>{{num|number:'13.3-3'}}</div>
+        <div>{{num|number:'13.0-0'}}</div>
+        <div>{{num|number:'13.2-4'}}</div>
+        <div>{{num|number:'13.2-2'}}</div>
+    </div>
+
+    <h4>Currency Pipe</h4>
+    <div>
+        <div>{{num}}</div>
+        <div>{{num|currency:'INR'}}</div>
+        <div>{{num|currency:'USD'}}</div>
+        <div>{{num|currency:'AUD'}}</div>
+        <div>{{num|currency:'GBP'}}</div>
+        <div>{{num|currency:'JPY'}}</div>
+        <div>{{num|currency:'XYZ'}}</div>
+    </div>
+
+    <h4>Date Pipe</h4>
+    <div>
+        <div>{{dt}}</div>
+        <div>{{dt|date:'short'}}</div>
+        <div>{{dt|date:'long'}}</div>
+        <div>{{dt|date:'dd'}}</div>
+        <div>{{dt|date:'MM'}}</div>
+        <div>{{dt|date:'MMM'}}</div>
+        <div>{{dt|date:'MMMM'}}</div>
+        <div>{{dt|date:'dd-MMM-yy'}}</div>
+        <div>{{dt|date:'dd-MMMM-yyyy'}}</div>
+        <div>{{dt|date:'dd-MM-yy hh:mm:ss aa'}}</div>
+        <div>{{dt|date:'dd-MM-yy HH:mm:ss'}}</div>
+    </div>
+</section>

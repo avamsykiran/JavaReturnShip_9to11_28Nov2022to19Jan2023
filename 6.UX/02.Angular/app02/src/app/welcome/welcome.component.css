@@ -1,0 +1,10 @@
+
+.centered{
+    display: block;
+    margin: auto;
+}
+
+.bordered{
+    border-radius: 10px;
+    border:2px solid #000000;
+}
