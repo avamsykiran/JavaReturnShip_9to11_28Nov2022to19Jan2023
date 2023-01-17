@@ -170,7 +170,7 @@ Angular
             Service
 
                     @Injectable({
-                        providedIn:'root'
+                        providedIn:'root|any'
                     })
                     class SalesService {}
            
@@ -282,5 +282,24 @@ Angular
             router-outlet       is a componenet used to hold space for the active component in the
                                 top-level-component template.
             routerLink          is a attrubute directive, used on a 'a' tag instead of its 'href' attribute.
-            routerLinkActive    is a attribute directive, that takes a css-class to be applied on the active link.
-            
+            routerLinkActive    is a attribute directive, that takes a css-class to be applied on the active   
+                                link.
+    
+    Typescript interface
+    ------------------------------------------------------------------------
+
+        typescript interface can have data memebers / fields.
+
+        this is to provide typesafty for json objects.
+
+        interface Employee{
+            empId:number;
+            name:string;
+            basic:number;
+        }
+
+        let e1 = {empId:101,name:'Vamsy',basic:45000};
+        let e2 = {empId=102,name:'Bhuvana'};
+
+        e1 is of type Employee, but e2 is not.
+

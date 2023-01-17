@@ -1,3 +1,4 @@
+import { compileDeclareClassMetadata } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Contact } from '../models/contact';
 
@@ -17,5 +18,31 @@ export class ContactService {
     ];
   }
 
-  
+  getAll():Contact[]{
+    return this.contacts;
+  }
+
+  getById(cid:number):Contact|undefined{
+    return this.contacts.find(c => c.contactId==cid);
+  }
+
+  add(c:Contact):Contact{
+    this.contacts.push(c);
+    return c;
+  }
+
+  update(cUpd:Contact):Contact{
+    let index = this.contacts.findIndex(c => c.contactId==cUpd.contactId);
+    if(index>-1){
+      this.contacts[index]=cUpd;
+    }
+    return cUpd;
+  }
+
+  deleteById(cid:number):void{
+    let index = this.contacts.findIndex(c => c.contactId==cid);
+    if(index>-1){
+      this.contacts.splice(index,1);
+    }
+  }
 }
