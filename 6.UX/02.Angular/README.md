@@ -303,3 +303,32 @@ Angular
 
         e1 is of type Employee, but e2 is not.
 
+    Angular forms
+    ------------------------------------------------------------
+
+        Template Driven Forms
+                NgModel and NgForm directives from FormsModule
+
+                are constructed directly in the template.
+                depend on html 5 validation api and 
+                are not responsive in certain validations.
+
+                are not easy to test but easy to construct and mostly emploed
+                in case of simple or smaller forms.
+
+        Model-Driven / Reactive Forms
+                FormGroup, FormControl classes form ReactiveFormsModule
+
+                are constructed based on a model and bound to the html template.
+                are backed up by angular validation api.
+                are easy to test and are reliable particularly in larger ad complicated forms.
+
+        Form Control State Properties.
+
+            NgModel and FormControl
+                    dirty       prestine
+                    touched     untouched
+                    invalid     valid
+
+            NgForm and FormGroup
+                    invalid     valid

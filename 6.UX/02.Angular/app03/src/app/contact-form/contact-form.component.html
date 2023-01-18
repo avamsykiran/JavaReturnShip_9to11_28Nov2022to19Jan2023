@@ -1,1 +1,35 @@
-<p>contact-form works!</p>
+<form class="border border-primary col-sm-6 mx-auto p-2" (ngSubmit)="formSubmited()" #contactForm="ngForm">
+    <div class="row">
+        <div class="col">
+            <div>
+                <label>Contact Id</label>
+                <input type="number" name="cid" [(ngModel)]="contact.contactId" class="form-control" required/>
+            </div>
+            <div>
+                <label>First Name</label>
+                <input type="text" name="fnm" [(ngModel)]="contact.firstName" class="form-control" required/>
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="lnm" [(ngModel)]="contact.lastName" class="form-control" required/>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <label>Mobile</label>
+                <input type="text" name="mno" [(ngModel)]="contact.mobile" class="form-control" required/>
+            </div>
+            <div>
+                <label>Mail Id</label>
+                <input type="email" name="mid" [(ngModel)]="contact.mailId" class="form-control" required/>
+            </div>
+            <div>
+                <label>Date Of Birth</label>
+                <input type="date" name="dot" [(ngModel)]="dobStr" class="form-control" (change)="updateDob()" required/>
+            </div>
+        </div>
+    </div>
+    <div class="d-grid p-2">
+        <button class="btn btn-primary" [disabled]="contactForm.invalid">SAVE CONTACT</button>
+    </div>
+</form>
