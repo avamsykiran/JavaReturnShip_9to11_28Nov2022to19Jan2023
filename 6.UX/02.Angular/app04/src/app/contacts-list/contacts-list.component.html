@@ -25,6 +25,7 @@
             <td>{{c.mobile}}</td>
             <td>{{c.mailId}}</td>
             <td>
+                <a class="btn btn-sm btn-primary me-1" [routerLink]="['/edit',c.contactId]">EDIT</a>
                 <button type="button" class="btn btn-sm btn-danger" (click)="remove(c.contactId)">DELETE</button>
             </td>
         </tr>
