@@ -332,3 +332,27 @@ Angular
 
             NgForm and FormGroup
                     invalid     valid
+
+    HttpClient
+    -----------------------------------------------------------
+
+        HttpClient  from HttpClientModule   from    '@angular/commons/http'
+
+            HttpClient is a service offering
+                get(url) : Observable
+                put(url,reqBody) : Observable
+                post(url,reqBody) : Observable
+                delete(url) : Observable
+
+            Observable from 'rxjs' ; 'ReactiveXJS'
+
+            Observable acts liek a bridge of communication between 
+            an asynchronous job and the ui.
+
+            let ob = httpClientObj.get("hhtp://localhost:888/contacts");
+
+            ob.subscribe({
+                next: data => { /*doAnythingWiththeData*/ },
+                error: err => { /*doSoemthingWithTheError */  }
+            });
+

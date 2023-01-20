@@ -1,0 +1,64 @@
+<form class="border border-primary col-lg-6 mx-auto p-2" (ngSubmit)="formSubmited()" [formGroup]="contactForm"> 
+   
+    <p *ngIf="errMsg" class="alert alert-danger p-2 fw-bold">
+        {{errMsg}}
+    </p>    
+   
+    <div class="row">
+        <div class="col">
+            <div>
+                <label>Contact Id</label>
+                <input type="number" formControlName="contactId" class="form-control"/>
+                <div class="bg-danger text-primary p-1" *ngIf="cid.invalid && (cid.touched || cid.dirty)">
+                    <p *ngIf="cid.errors!['required']">Contact Id is a mandate field.</p>
+                </div>
+            </div>
+            <div>
+                <label>First Name</label>
+                <input type="text" formControlName="firstName" class="form-control"/>
+                <div class="bg-danger text-primary p-1" *ngIf="fnm.invalid && (fnm.touched || fnm.dirty)">
+                    <p *ngIf="fnm.errors!['required']">First Name is a mandate field.</p>
+                    <p *ngIf="fnm.errors!['minlength']">First Name must be atleast 3 letters in length.</p>
+                    <p *ngIf="fnm.errors!['maxlength']">First Name must be atmost 50 letters in length.</p>
+                </div>
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control"/>
+                <div class="bg-danger text-primary p-1" *ngIf="lnm.invalid && (lnm.touched || lnm.dirty)">
+                    <p *ngIf="lnm.errors!['required']">Last Name is a mandate field.</p>
+                    <p *ngIf="lnm.errors!['minlength']">Last Name must be atleast 3 letters in length.</p>
+                    <p *ngIf="lnm.errors!['maxlength']">Last Name must be atmost 50 letters in length.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <label>Mobile</label>
+                <input type="text" formControlName="mobile" class="form-control"/>
+                <div class="bg-danger text-primary p-1" *ngIf="mbn.invalid && (mbn.touched || mbn.dirty)">
+                    <p *ngIf="mbn.errors!['required']">Mobile is a mandate field.</p>
+                    <p *ngIf="mbn.errors!['pattern']">Mobile must be a 10 digit number.</p>
+                </div>
+            </div>
+            <div>
+                <label>Mail Id</label>
+                <input type="email" formControlName="mailId" class="form-control"/>
+                <div class="bg-danger text-primary p-1" *ngIf="mid.invalid && (mid.touched || mid.dirty)">
+                    <p *ngIf="mid.errors!['required']">Mail Id is a mandate field.</p>
+                    <p *ngIf="mid.errors!['email']">A valid email id please.</p>
+                </div>
+            </div>
+            <div>
+                <label>Date Of Birth</label>
+                <input type="date" formControlName="dateOfBirth" class="form-control" />
+                <div class="bg-danger text-primary p-1" *ngIf="dob.invalid && (dob.touched || dob.dirty)">
+                    <p *ngIf="dob.errors!['required']">Date of birth is a mandate field.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-grid p-2">
+        <button class="btn btn-primary" [disabled]="contactForm.invalid">SAVE CONTACT</button>
+    </div>
+</form>
